@@ -2,7 +2,7 @@ import Icon from "@/components/icons/Icon";
 import * as d3 from "d3";
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { MyApp, MyD3Component } from "./chart";
+import MyD3Component from "./chart";
 
 export default function FarmFairStart() {
   // var dataset = [40, 20];
@@ -343,7 +343,7 @@ export default function FarmFairStart() {
                 <Row>
                   <Col className="m-1 px-.5 py-1 bg-lime-500 font-light rounded-tr-xl rounded-tl-sm rounded-br-sm rounded-bl-xl">
                     <h5>Projeção/Meta</h5>
-                    <MyApp />
+                    <MyD3Component />
                   </Col>
                 </Row>
               </Col>

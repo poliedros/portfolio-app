@@ -1,12 +1,12 @@
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
-interface IProps {
-  data?: number[];
-}
+// interface IProps {
+//   data?: number[];
+// }
 
 /* Component */
-export const MyD3Component = (props: IProps) => {
+export default function MyD3Component(props: any) {
   const d3Container = useRef(null);
   /* The useRef Hook creates a variable that "holds on" to a value across rendering
      passes. In this case it will hold our component's SVG DOM element. It's
@@ -76,13 +76,13 @@ export const MyD3Component = (props: IProps) => {
   );
 
   return <svg viewBox="0 0 100 100" ref={d3Container} />;
-};
+}
 
 /* App */
-export const MyApp = () => {
-  return (
-    <div>
-      <MyD3Component />
-    </div>
-  );
-};
+// function Chart() {
+//   return (
+//     <div>
+//       <MyD3Component />
+//     </div>
+//   );
+// };
