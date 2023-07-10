@@ -121,7 +121,7 @@ export default function FarmFairStart() {
                       {/* <sup className="tracking-wider font-light text-sm text-slate-600">
                       ar
                     </sup>{" "} */}
-                      <b>23°C</b>
+                      <b>21°C</b>
                     </h3>
                   </div>
                 </div>
