@@ -5,7 +5,9 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:docker": "docker build -t remove .",
+    "start:docker": "docker run --rm -it -p 3000:3000 --name remove remove"
   },
   "dependencies": {
     "@react-three/fiber": "^8.12.2",
