@@ -88,16 +88,22 @@ export default function StartFashion4() {
               Porteños
             </h1>
           </div>
-          <div className="h-[100vh] w-screen z-[50] relative flex items-end justify-start !pb-12 !pl-12">
-            <div>
-              <div className="rounded-full w-[248px] h-[248px] bg-gradient-to-t from-purple-600 to-pink-600 flex items-end">
-                <div className="rounded-full bg-center bg-cover bg-no-repeat bg-[url('/rafael-rodrigues.png')] h-[460px] w-[248px]"></div>
-              </div>
-              <div>
-                <h2>Las mejores marcas de los dos lados del Río de la Plata</h2>
+          <div className="h-[100vh] w-screen z-[50] relative flex flex-col sm:flex-row items-center sm:items-end justify-center !pb-3 !pl-3 sm:!pb-12 sm:!pl-12">
+            <div className="rounded-full w-[248px] h-[248px] bg-gradient-to-t from-purple-600 to-pink-600 flex items-end">
+              <div className="rounded-full bg-center bg-cover bg-no-repeat bg-[url('/rafael-rodrigues.png')] h-[460px] w-[248px]"></div>
+            </div>
+            <div className="ml-0 sm:ml-6">
+              <h1 className="font-[Finlandica] text-white">
+                Las mejores marcas de
+                <br />
+                los dos lados del Río de la Plata
+              </h1>
+              <div className="border-l-2 pl-2">
+                <h3 className="font-['Wire_One'] text-white">
+                  3 o 6 cuotas - aceptamos todos las tarjetas
+                </h3>
               </div>
             </div>
-            <div></div>
           </div>
           <div className="h-[100vh] m-6 flex flex-col">
             <div className="flex flex-col sm:flex-row items-center justify-end relative bottom-0">

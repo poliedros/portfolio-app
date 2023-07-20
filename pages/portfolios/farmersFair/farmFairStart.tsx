@@ -1,8 +1,12 @@
 import Icon from "@/components/icons/Icon";
 import * as d3 from "d3";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import MyD3Component from "./chart";
+import MyD3Component2 from "./chart2";
+import MyD3Component3 from "./chart3";
+import MyD3Component4 from "./chart4";
+import MyD3Component5 from "./chart5";
 
 export default function FarmFairStart() {
   // var dataset = [40, 20];
@@ -54,6 +58,36 @@ export default function FarmFairStart() {
   //   render(dataset);
   // }
 
+  const today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
+  const monthNames = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ];
+  var month = monthNames[today.getMonth()];
+  var yyyy = today.getFullYear();
+  const [hour, setHour] = useState(today.getHours());
+  const [mint, setMint] = useState(today.getMinutes());
+
+  useEffect(() => {
+    setHour(today.getHours());
+  }, [mint]);
+
+  useEffect(() => {
+    setMint(today.getMinutes());
+  }, []);
+
   return (
     <>
       <div className="h-[100vh] w-full relative overflow-hidden bg-cover bg-no-repeat bg-[url('https://images.unsplash.com/photo-1532467227905-90e05784f072?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80')]">
@@ -78,7 +112,7 @@ export default function FarmFairStart() {
         </div>
         <div className="h-[90%] w-[90%] absolute bg-white flex right-0 bottom-0 m-3 opacity-80"></div>
         <div className="h-[90%] w-[90%] absolute flex right-0 bottom-0 m-3">
-          <div className="w-[10%] bg-gray-600 text-white">
+          <div className="w-[5%] bg-gray-600 text-white">
             <div className="h-full flex flex-col justify-center items-center">
               {Icon("gi", "GiWheat", "24px")}
               <span className="my-3 opacity-50">
@@ -89,7 +123,7 @@ export default function FarmFairStart() {
               </span>
             </div>
           </div>
-          <div className="w-[90%] font-['Share_Tech']">
+          <div className="w-[95%] font-['Share_Tech']">
             <Row>
               <Col className="bg-lime-500 m-1 flex items-center rounded-tl-xl rounded-tr-sm rounded-bl-sm rounded-br-xl">
                 <div className="border-2 border-white text-white rounded-full m-1">
@@ -190,7 +224,9 @@ export default function FarmFairStart() {
                           Data
                         </span>
                       </sup>{" "} */}
-                      <b className="uppercase tracking-wider">23/07/2023</b>
+                      <b className="uppercase tracking-wider">
+                        {dd + "/" + mm + "/" + yyyy}
+                      </b>
                     </h6>
                     <h6 className="!mb-0">
                       {/* <sup>
@@ -198,7 +234,9 @@ export default function FarmFairStart() {
                           Hora
                         </span>
                       </sup>{" "} */}
-                      <b className="uppercase tracking-wider">9:32</b>
+                      <b className="uppercase tracking-wider">
+                        {hour + ":" + mint}
+                      </b>
                     </h6>
                   </Col>
                 </Row>
@@ -237,25 +275,38 @@ export default function FarmFairStart() {
                     </h4>
                   </Col>
                 </Row>
+
+                <div className="flex items-center justify-center my-3">
+                  <MyD3Component4 />
+                </div>
+                <Row>
+                  <Col className="m-1 px-.5 py-1 bg-lime-400 font-light rounded-tl-xl rounded-tr-sm rounded-bl-sm rounded-br-xl">
+                    <h6 className="!mb-0 text-right">
+                      <b className="uppercase pb-2 text-thin text-sm tracking-wider text-white">
+                        Desenvolvido por CZAR+
+                      </b>
+                    </h6>
+                  </Col>
+                </Row>
               </Col>
               <Col className="">
                 <h4>Atividades</h4>
-                {/* <h6 className="m-1 px-2 py-2 bg-lime-600 text-white font-light rounded-tr-xl rounded-tl-sm rounded-br-sm rounded-bl-xl">
+                <h6 className="m-1 px-2 py-2 bg-lime-600 text-sm text-white font-light rounded-tr-xl rounded-tl-sm rounded-br-sm rounded-bl-xl">
                   Restaurar Irrigação no setor-B4
                 </h6>
-                <h6 className="m-1 px-2 py-2 bg-lime-600 text-white font-light rounded-tl-xl rounded-tr-sm rounded-bl-sm rounded-br-xl">
+                <h6 className="m-1 px-2 py-2 bg-lime-600 text-sm text-white font-light rounded-tl-xl rounded-tr-sm rounded-bl-sm rounded-br-xl">
                   Revista de Fertilizantes
                 </h6>
-                <h6 className="m-1 px-2 py-2 bg-lime-600 text-white font-light rounded-tr-xl rounded-tl-sm rounded-br-sm rounded-bl-xl">
+                <h6 className="m-1 px-2 py-2 bg-lime-600 text-sm text-white font-light rounded-tr-xl rounded-tl-sm rounded-br-sm rounded-bl-xl">
                   Visita de Inspenção - José Geraldo
-                </h6>{" "}*/}
+                </h6>{" "}
                 <h4 className="mt-3">Culturas</h4>
                 <div
-                  className="w-full flex justify-center my-2" //border-2 border-white
+                  className="w-full flex justify-center my-3" //border-2 border-white
                 >
                   <MyD3Component />
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-around py-2">
                   <div>
                     <div className="flex items-baseline">
                       <div className="w-[10px] h-[10px] bg-lime-100 mr-1 rounded-tr rounded-tl-sm rounded-br-sm rounded-bl"></div>
@@ -284,8 +335,14 @@ export default function FarmFairStart() {
                 <Row>
                   <Col className="m-1 px-.5 py-1 bg-lime-500 font-light rounded-tl-xl rounded-tr-sm rounded-bl-sm rounded-br-xl">
                     <h5>Produtividade</h5>
-                    <h5>Consumo</h5>
-                    Água Fertilizante
+                    <div className="my-3">
+                      <MyD3Component3 />
+                    </div>
+                    <h5>Consumo / Vendas</h5>
+                    <div className="my-3">
+                      <MyD3Component5 />
+                    </div>
+                    <h6>Lote 1 em replantio.</h6>
                   </Col>
                 </Row>
               </Col>
@@ -293,6 +350,7 @@ export default function FarmFairStart() {
                 className="" //bg-yellow-500
               >
                 <h5>Estatísticas</h5>
+                <h6 className="my-1">Essa Semana</h6>
                 <div className="flex justify-center items-center">
                   <div className="px-1 py-1 bg-yellow-500 mr-1 rounded-tr rounded-tl-sm rounded-br-sm rounded-bl text-xs text-white">
                     4
@@ -318,32 +376,43 @@ export default function FarmFairStart() {
                 </div>
                 <h6 className="my-1">Próxima Semana</h6>
                 <div className="flex justify-center items-center mb-2">
-                  <div className="px-1 py-1 bg-yellow-500 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
-                    4
+                  <div className="px-1 py-1 bg-yellow-700 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
+                    3
                   </div>
                   <div className="px-1 py-1 bg-lime-600 mr-1 rounded-tr rounded-tl-sm rounded-br-sm rounded-bl text-xs text-white">
-                    0
+                    6
                   </div>
-                  <div className="px-1 py-1 bg-yellow-300 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
-                    7
-                  </div>
-                  <div className="px-1 py-1 bg-lime-500 mr-1 rounded-tr rounded-tl-sm rounded-br-sm rounded-bl text-xs text-white">
+                  <div className="px-1 py-1 bg-yellow-500 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
                     2
-                  </div>
-                  <div className="px-1 py-1 bg-yellow-700 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
-                    4
                   </div>
                   <div className="px-1 py-1 bg-lime-500 mr-1 rounded-tr rounded-tl-sm rounded-br-sm rounded-bl text-xs text-white">
                     2
                   </div>
                   <div className="px-1 py-1 bg-lime-500 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
-                    1
+                    5
+                  </div>
+                  <div className="px-1 py-1 bg-lime-500 mr-1 rounded-tr rounded-tl-sm rounded-br-sm rounded-bl text-xs text-white">
+                    3
+                  </div>
+                  <div className="px-1 py-1 bg-yellow-300 mr-1 rounded-tl rounded-tr-sm rounded-bl-sm rounded-br text-xs text-white">
+                    6
                   </div>
                 </div>
                 <Row>
                   <Col className="m-1 px-.5 py-1 bg-lime-500 font-light rounded-tr-xl rounded-tl-sm rounded-br-sm rounded-bl-xl">
                     <h5>Projeção/Meta</h5>
-                    <MyD3Component />
+                    <div
+                      className="flex justify-center my-2" //border-2 border-white
+                    >
+                      <MyD3Component2 />
+                    </div>
+                    <h6>Azul - Vendas Internacionais</h6>{" "}
+                    <h6>Verde - Vendas Nacionais</h6>
+                    <p className="text-sm mt-4 mb-1">
+                      *A projeções levam em consideração dados projetados por
+                      contratos e expectativas das condições climaticas para
+                      2024 e 2025
+                    </p>
                   </Col>
                 </Row>
               </Col>

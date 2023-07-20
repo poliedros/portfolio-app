@@ -38,7 +38,7 @@ export default function IndexPage() {
       </Link>
       MathSim TokiPona GAYA Farol Agro -- Moda -- Auraa
     </div> */}
-      <div className="flex justify-around items-center w-screen h-screen">
+      <div className="flex justify-around items-center w-screen h-screen flex-col md:flex-row">
         {/* <div className="photo">
         <div
           className="photo__image"
